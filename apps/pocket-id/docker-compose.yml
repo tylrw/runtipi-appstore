@@ -2,7 +2,7 @@ version: "3.9"
 services:
   pocket-id:
     container_name: pocket-id
-    image: stonith404/pocket-id:v0.8.0
+    image: stonith404/pocket-id:v0.19.0
     restart: unless-stopped
     environment:
       - TZ=${TZ}
