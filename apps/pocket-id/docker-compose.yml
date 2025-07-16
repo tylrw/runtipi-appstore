@@ -2,23 +2,23 @@ version: "3.9"
 services:
   pocket-id:
     container_name: pocket-id
-    image: ghcr.io/pocket-id/pocket-id:v0.43.1
+    image: ghcr.io/pocket-id/pocket-id:v1.6.2
     restart: unless-stopped
     environment:
       - TZ=${TZ}
-      - PUBLIC_APP_URL=${APP_PROTOCOL:-https}://${APP_DOMAIN}
+      - APP_URL=${APP_PROTOCOL:-https}://${APP_DOMAIN}
       - TRUST_PROXY=true
     volumes:
-      - ${APP_DATA_DIR}/data:/app/backend/data
+      - ${APP_DATA_DIR}/data:/app/data
     ports:
-      - ${APP_PORT}:80
+      - ${APP_PORT}:1411
     networks:
       - tipi_main_network
     labels:
       # Main
       traefik.enable: true
       traefik.http.middlewares.pocket-id-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.pocket-id.loadbalancer.server.port: 80
+      traefik.http.services.pocket-id.loadbalancer.server.port: 1411
       # Web
       traefik.http.routers.pocket-id-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.pocket-id-insecure.entrypoints: web
