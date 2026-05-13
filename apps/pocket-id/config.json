@@ -9,10 +9,10 @@
     "port": 3001,
     "categories": ["security"],
     "description": "Pocket ID is a simple OIDC provider that allows users to authenticate with their passkeys to your services.",
-    "tipi_version": 13,
-    "version": "v2.5.0",
+    "tipi_version": 14,
+    "version": "v2.7.0",
     "source": "https://github.com/pocket-id/pocket-id",
     "supported_architectures": ["arm64", "amd64"],
     "created_at": 1728348116000,
-    "updated_at": 1775004045145
+    "updated_at": 1778716178416
   }
